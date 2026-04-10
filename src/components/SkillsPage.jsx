@@ -1,6 +1,7 @@
 import NavBar from './NavBar'
 import Footer from './Footer'
 import { skillCategories } from '../data/portfolio'
+import { getCategoryIcon, getSkillIcon } from './iconMap'
 
 export default function SkillsPage() {
   return (
@@ -13,25 +14,35 @@ export default function SkillsPage() {
         </div>
 
         <div className="skills-grid">
-          {skillCategories.map((cat, ci) => (
+          {skillCategories.map((cat, ci) => {
+            const CatIcon = getCategoryIcon(cat.id)
+            return (
             <div
               key={cat.id}
               className="skills-category"
               style={{ animationDelay: `${ci * 0.12}s` }}
             >
               <div className="skills-category-header" style={{ background: cat.gradient }}>
-                <h3>{cat.title}</h3>
+                <div className="skills-category-title">
+                  <CatIcon className="skills-category-icon" />
+                  <h3>{cat.title}</h3>
+                </div>
                 <span className="skills-count">{cat.skills.length} skills</span>
               </div>
               <div className="skills-list">
-                {cat.skills.map((skill, si) => (
+                {cat.skills.map((skill, si) => {
+                  const SkillIcon = getSkillIcon(skill.name)
+                  return (
                   <div
                     key={skill.name}
                     className="skill-item"
                     style={{ animationDelay: `${ci * 0.12 + si * 0.05}s` }}
                   >
                     <div className="skill-info">
-                      <span className="skill-name">{skill.name}</span>
+                      <span className="skill-name">
+                        {SkillIcon && <SkillIcon className="skill-name-icon" />}
+                        {skill.name}
+                      </span>
                       <span className="skill-percent">{skill.proficiency}%</span>
                     </div>
                     <div className="skill-bar">
@@ -45,10 +56,12 @@ export default function SkillsPage() {
                       />
                     </div>
                   </div>
-                ))}
+                  )
+                })}
               </div>
             </div>
-          ))}
+            )
+          })}
         </div>
       </div>
       <Footer />

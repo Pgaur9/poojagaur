@@ -1,5 +1,6 @@
 import { useRef, useState } from 'react'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa'
+import { getCardIcon } from './iconMap'
 
 export default function ContentRow({ title, items, onCardClick, delay = 0 }) {
   const rowRef = useRef(null)
@@ -39,10 +40,10 @@ export default function ContentRow({ title, items, onCardClick, delay = 0 }) {
             >
               <div className="card-thumbnail" style={{ background: item.gradient }}>
                 <div className="card-thumbnail-content">
-                  {item.company && <span className="card-company-initial">{item.company?.[0] || item.title?.[0]}</span>}
-                  {!item.company && item.institution && <span className="card-company-initial">{item.institution?.[0]}</span>}
-                  {!item.company && !item.institution && item.issuer && <span className="card-company-initial">{item.issuer?.[0]}</span>}
-                  {!item.company && !item.institution && !item.issuer && <span className="card-company-initial">{item.title?.[0]}</span>}
+                  {(() => {
+                    const Icon = getCardIcon(item)
+                    return <Icon className="card-thumbnail-icon" />
+                  })()}
                 </div>
                 {item.isNew && <span className="card-badge-new">NEW</span>}
                 {item.matchPercent >= 95 && <span className="card-badge-hd">HD</span>}
