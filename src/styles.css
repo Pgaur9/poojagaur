@@ -182,6 +182,7 @@ a {
   justify-content: center;
   z-index: 10000;
   cursor: pointer;
+  padding: 2rem;
   transition: opacity 0.8s ease, transform 0.8s ease;
 }
 
@@ -192,40 +193,28 @@ a {
 }
 
 .intro-logo-container {
-  text-align: center;
-}
-
-.intro-ribbon-wrapper {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
+  width: 100%;
+  max-width: 640px;
 }
 
 .intro-svg {
-  width: 320px;
-  height: 180px;
-}
-
-.intro-svg .ribbon {
-  transform-origin: center;
-  opacity: 0;
+  width: 100%;
+  max-width: 560px;
+  height: auto;
+  display: block;
 }
 
 /* Idle state — static logo with a soft pulsing red glow */
-.intro-screen.idle .ribbon {
-  opacity: 0.9;
-}
-
 .intro-screen.idle .intro-svg {
   animation: introPulse 2.5s ease-in-out infinite;
 }
 
-.intro-screen.animating .ribbon,
-.intro-screen.done .ribbon {
-  opacity: 1;
-}
-
 .intro-screen.animating .intro-svg {
-  animation: introBrighten 0.5s ease-out forwards;
+  animation: introBrighten 0.6s ease-out forwards;
 }
 
 @keyframes introPulse {
@@ -248,8 +237,6 @@ a {
   }
 }
 
-/* Ribbon draw animations disabled — logo is now visible from the start
-   in idle state. The introBrighten animation handles the click reaction. */
 
 .intro-subtitle {
   font-family: var(--font-main);
@@ -257,9 +244,12 @@ a {
   font-weight: 300;
   letter-spacing: 0.8em;
   color: var(--text-secondary);
-  margin-top: 1.5rem;
-  opacity: 0;
-  animation: fadeIn 0.8s ease 2.4s both;
+  margin-top: 1rem;
+  text-align: center;
+  width: 100%;
+  /* Indent left to compensate for the right-side letter-spacing whitespace */
+  padding-left: 0.8em;
+  animation: fadeIn 0.8s ease 0.4s both;
 }
 
 .intro-skip {
@@ -2178,6 +2168,24 @@ a {
 
   .navbar-profile-menu {
     display: none;
+  }
+
+  .intro-svg {
+    max-width: 88vw;
+  }
+
+  .intro-subtitle {
+    font-size: 0.9rem;
+    letter-spacing: 0.55em;
+  }
+
+  .intro-enter-hint {
+    bottom: 3rem;
+  }
+
+  .intro-enter-hint span {
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
   }
 
   .profile-select-title {

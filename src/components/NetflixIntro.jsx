@@ -63,36 +63,37 @@ export default function NetflixIntro() {
   return (
     <div className={`intro-screen ${phase}`} onClick={startIntro}>
       <div className="intro-logo-container">
-        <div className="intro-ribbon-wrapper">
-          <svg viewBox="0 0 300 140" className="intro-svg">
-            <defs>
-              <linearGradient id="redGrad" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#e50914" />
-                <stop offset="50%" stopColor="#b20710" />
-                <stop offset="100%" stopColor="#e50914" />
-              </linearGradient>
-              <filter id="glow">
-                <feGaussianBlur stdDeviation="3" result="blur" />
-                <feComposite in="SourceGraphic" in2="blur" operator="over" />
-              </filter>
-            </defs>
-            {/* P letter */}
-            <g className="intro-letter" filter="url(#glow)">
-              <rect x="20" y="10" width="22" height="120" rx="2" fill="url(#redGrad)" className="ribbon r1" />
-              <rect x="42" y="10" width="50" height="22" rx="2" fill="url(#redGrad)" className="ribbon r2" />
-              <rect x="72" y="10" width="22" height="65" rx="2" fill="url(#redGrad)" className="ribbon r3" />
-              <rect x="42" y="53" width="50" height="22" rx="2" fill="url(#redGrad)" className="ribbon r4" />
-            </g>
-            {/* G letter */}
-            <g className="intro-letter" filter="url(#glow)">
-              <rect x="130" y="10" width="75" height="22" rx="2" fill="url(#redGrad)" className="ribbon r5" />
-              <rect x="130" y="10" width="22" height="120" rx="2" fill="url(#redGrad)" className="ribbon r6" />
-              <rect x="130" y="108" width="75" height="22" rx="2" fill="url(#redGrad)" className="ribbon r7" />
-              <rect x="183" y="65" width="22" height="65" rx="2" fill="url(#redGrad)" className="ribbon r8" />
-              <rect x="163" y="65" width="42" height="22" rx="2" fill="url(#redGrad)" className="ribbon r9" />
-            </g>
-          </svg>
-        </div>
+        <svg
+          viewBox="0 0 600 240"
+          preserveAspectRatio="xMidYMid meet"
+          className="intro-svg"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <defs>
+            <linearGradient id="netflixRed" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#e50914" />
+              <stop offset="50%" stopColor="#b20710" />
+              <stop offset="100%" stopColor="#831010" />
+            </linearGradient>
+            <filter id="netflixShadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="6" stdDeviation="8" floodColor="#000" floodOpacity="0.85" />
+              <feDropShadow dx="0" dy="0" stdDeviation="14" floodColor="#e50914" floodOpacity="0.55" />
+            </filter>
+          </defs>
+          <text
+            x="300"
+            y="195"
+            textAnchor="middle"
+            fontFamily="'Bebas Neue', 'Oswald', 'Arial Narrow', sans-serif"
+            fontSize="260"
+            fontWeight="900"
+            fill="url(#netflixRed)"
+            filter="url(#netflixShadow)"
+            letterSpacing="-12"
+          >
+            PG
+          </text>
+        </svg>
         <div className="intro-subtitle">P O R T F O L I O</div>
       </div>
 
