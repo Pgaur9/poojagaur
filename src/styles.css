@@ -1006,6 +1006,10 @@ a {
 .card-thumbnail-content {
   position: relative;
   z-index: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-company-initial {
@@ -1036,8 +1040,10 @@ a {
   text-shadow: 0 4px 14px rgba(0, 0, 0, 0.6),
                0 0 24px rgba(0, 0, 0, 0.4);
   text-align: center;
+  width: 100%;
   padding: 0 0.8rem;
   line-height: 1;
+  display: block;
   transition: transform 0.35s ease, letter-spacing 0.35s ease;
 }
 
