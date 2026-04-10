@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import { FaLinkedin, FaEnvelope, FaCode } from 'react-icons/fa'
+import { profile } from '../data/portfolio'
 
 export default function Footer() {
   const navigate = useNavigate()
@@ -7,7 +8,7 @@ export default function Footer() {
   return (
     <footer className="footer">
       <div className="footer-social">
-        <a href="https://www.linkedin.com/in/pooja-gaur" target="_blank" rel="noopener noreferrer" className="footer-social-link">
+        <a href={profile.linkedIn} target="_blank" rel="noopener noreferrer" className="footer-social-link">
           <FaLinkedin />
         </a>
         <button onClick={() => navigate('/contact')} className="footer-social-link">
