@@ -20,6 +20,15 @@ export default function Browse() {
 
   const fullTitle = `${profile.title} | ${profile.currentCompany}`
 
+  // Profile-specific animated GIF backgrounds (same source as the example portfolio)
+  const profileBackgrounds = {
+    Recruiter: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTZ5eWwwbjRpdWM1amxyd3VueHhteTVzajVjeGZtZGJ1dDc4MXMyNCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9dg/16u7Ifl2T4zYfQ932F/giphy.gif",
+    Developer: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExNGNidDl5emZpejY2eGFxa2I4NW0zZGNpbWRlbnBrZ3N2dWhhbzM1MyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/TFPdmm3rdzeZ0kP3zG/giphy.gif",
+    Collaborator: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExc28yMjMyZmJ6eWtxbmNwdDV6cXk4dWZmcjFhZms2cXBjN2h5ZDJjeSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QjZXUBUr89CkiWLPjL/giphy.gif",
+    Explorer: "https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmxib24ycWo2cjlmazh0NGV5NTZ2Mzd2YWY0M2tvam9oYXBwYW1ocCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/ERKMnDK6tkzJe8YVa3/giphy-downsized-large.gif",
+  }
+  const heroBgUrl = profileBackgrounds[profileName] || profileBackgrounds.Recruiter
+
   useEffect(() => {
     let i = 0
     const typing = setInterval(() => {
@@ -60,6 +69,10 @@ export default function Browse() {
 
       {/* Hero Banner */}
       <section className="hero-banner">
+        <div
+          className="hero-bg-image"
+          style={{ backgroundImage: `url(${heroBgUrl})` }}
+        />
         <div className="hero-bg-animation" />
         <div className="hero-gradient" />
         <div className="hero-content">
@@ -95,7 +108,7 @@ export default function Browse() {
 
       {/* Top 10 Skills Banner */}
       <section className="top10-section">
-        <h2 className="row-title">Top 10 Skills in the Industry</h2>
+        <h2 className="row-title">My Top 10 Skills</h2>
         <div className="top10-row">
           {['Java', 'Spring Boot', 'React.js', 'AWS', 'PostgreSQL', 'Docker', 'REST APIs', 'JavaScript', 'Git', 'Jenkins'].map((skill, i) => (
             <div key={skill} className="top10-card" style={{ animationDelay: `${i * 0.08}s` }}>
