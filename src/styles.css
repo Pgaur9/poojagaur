@@ -210,8 +210,13 @@ a {
   opacity: 0;
 }
 
-.intro-screen.initial .ribbon {
-  opacity: 0;
+/* Idle state — static logo with a soft pulsing red glow */
+.intro-screen.idle .ribbon {
+  opacity: 0.9;
+}
+
+.intro-screen.idle .intro-svg {
+  animation: introPulse 2.5s ease-in-out infinite;
 }
 
 .intro-screen.animating .ribbon,
@@ -219,24 +224,32 @@ a {
   opacity: 1;
 }
 
-.intro-screen.animating .r1,
-.intro-screen.done .r1 { animation: ribbonDraw 0.4s ease-out 0.1s both; }
-.intro-screen.animating .r2,
-.intro-screen.done .r2 { animation: ribbonDrawX 0.3s ease-out 0.4s both; }
-.intro-screen.animating .r3,
-.intro-screen.done .r3 { animation: ribbonDraw 0.4s ease-out 0.6s both; }
-.intro-screen.animating .r4,
-.intro-screen.done .r4 { animation: ribbonDrawX 0.3s ease-out 0.9s both; }
-.intro-screen.animating .r5,
-.intro-screen.done .r5 { animation: ribbonDrawX 0.3s ease-out 1.1s both; }
-.intro-screen.animating .r6,
-.intro-screen.done .r6 { animation: ribbonDraw 0.4s ease-out 1.3s both; }
-.intro-screen.animating .r7,
-.intro-screen.done .r7 { animation: ribbonDrawX 0.3s ease-out 1.6s both; }
-.intro-screen.animating .r8,
-.intro-screen.done .r8 { animation: ribbonDraw 0.3s ease-out 1.8s both; }
-.intro-screen.animating .r9,
-.intro-screen.done .r9 { animation: ribbonDrawX 0.3s ease-out 2.0s both; }
+.intro-screen.animating .intro-svg {
+  animation: introBrighten 0.5s ease-out forwards;
+}
+
+@keyframes introPulse {
+  0%, 100% { filter: drop-shadow(0 0 12px rgba(229, 9, 20, 0.5)); }
+  50% { filter: drop-shadow(0 0 28px rgba(229, 9, 20, 1)); }
+}
+
+@keyframes introBrighten {
+  0% {
+    filter: drop-shadow(0 0 12px rgba(229, 9, 20, 0.5));
+    transform: scale(1);
+  }
+  50% {
+    filter: drop-shadow(0 0 50px rgba(229, 9, 20, 1)) drop-shadow(0 0 80px rgba(229, 9, 20, 0.7));
+    transform: scale(1.08);
+  }
+  100% {
+    filter: drop-shadow(0 0 35px rgba(229, 9, 20, 0.8));
+    transform: scale(1.04);
+  }
+}
+
+/* Ribbon draw animations disabled — logo is now visible from the start
+   in idle state. The introBrighten animation handles the click reaction. */
 
 .intro-subtitle {
   font-family: var(--font-main);
@@ -256,6 +269,47 @@ a {
   color: var(--text-muted);
   opacity: 0;
   animation: fadeIn 1s ease 2.8s both;
+}
+
+.intro-enter-hint {
+  position: absolute;
+  bottom: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  animation: fadeIn 0.8s ease 0.3s both;
+}
+
+.intro-enter-pulse {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--red);
+  box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.7);
+  animation: enterPulse 1.8s ease-out infinite;
+}
+
+@keyframes enterPulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(229, 9, 20, 0.7);
+  }
+  70% {
+    transform: scale(1.1);
+    box-shadow: 0 0 0 18px rgba(229, 9, 20, 0);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(229, 9, 20, 0);
+  }
+}
+
+.intro-enter-hint span {
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.4em;
+  color: var(--text-secondary);
 }
 
 
