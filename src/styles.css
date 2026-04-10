@@ -1027,6 +1027,25 @@ a {
   transform: scale(1.15) rotate(-3deg);
 }
 
+.card-thumbnail-label {
+  font-family: var(--font-display);
+  font-size: 2.6rem;
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: 0.04em;
+  text-shadow: 0 4px 14px rgba(0, 0, 0, 0.6),
+               0 0 24px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  padding: 0 0.8rem;
+  line-height: 1;
+  transition: transform 0.35s ease, letter-spacing 0.35s ease;
+}
+
+.content-card:hover .card-thumbnail-label {
+  transform: scale(1.08);
+  letter-spacing: 0.08em;
+}
+
 .card-badge-new {
   position: absolute;
   top: 8px;

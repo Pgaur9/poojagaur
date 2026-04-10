@@ -40,10 +40,18 @@ export default function ContentRow({ title, items, onCardClick, delay = 0 }) {
             >
               <div className="card-thumbnail" style={{ background: item.gradient }}>
                 <div className="card-thumbnail-content">
-                  {(() => {
-                    const Icon = getCardIcon(item)
-                    return <Icon className="card-thumbnail-icon" />
-                  })()}
+                  {item.category === 'skills' ? (
+                    (() => {
+                      const Icon = getCardIcon(item)
+                      return <Icon className="card-thumbnail-icon" />
+                    })()
+                  ) : (
+                    <span className="card-thumbnail-label">
+                      {item.shortName ||
+                        (item.category === 'certifications' ? item.issuer : null) ||
+                        item.title}
+                    </span>
+                  )}
                 </div>
                 {item.isNew && <span className="card-badge-new">NEW</span>}
                 {item.matchPercent >= 95 && <span className="card-badge-hd">HD</span>}

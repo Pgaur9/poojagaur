@@ -46,6 +46,7 @@ export const experience = [
   {
     id: "xtec",
     company: "XTec Incorporated",
+    shortName: "XTec",
     role: "Full Stack Engineer",
     type: "Full-time",
     period: "Sep 2024 - Present",
@@ -71,6 +72,7 @@ export const experience = [
   {
     id: "3pillar",
     company: "3Pillar Global",
+    shortName: "3Pillar",
     role: "Sr. Java Developer",
     type: "Full-time",
     period: "May 2021 - Mar 2022",
@@ -102,6 +104,7 @@ export const experience = [
   {
     id: "nice",
     company: "NICE",
+    shortName: "NICE",
     role: "Java Developer",
     type: "Full-time",
     period: "Jan 2019 - May 2021",
@@ -132,6 +135,7 @@ export const experience = [
   {
     id: "tcs",
     company: "Tata Consultancy Services",
+    shortName: "TCS",
     role: "Software Quality Assurance Engineer",
     type: "Full-time",
     period: "Jun 2016 - Dec 2018",
@@ -166,6 +170,7 @@ export const education = [
   {
     id: "nucamp",
     institution: "Nucamp Coding Bootcamp",
+    shortName: "Nucamp",
     degree: "Certification, Fullstack Web Development",
     period: "Jun 2024 - Dec 2024",
     grade: "A",
@@ -179,6 +184,7 @@ export const education = [
   {
     id: "mca",
     institution: "Devi Ahilya Vishwavidyalaya (DAVV), Indore",
+    shortName: "MCA",
     degree: "Master of Computer Applications (MCA)",
     field: "Computer Software Engineering",
     period: "2014 - 2016",
@@ -197,6 +203,7 @@ export const education = [
   {
     id: "bca",
     institution: "Devi Ahilya Vishwavidyalaya (DAVV), Indore",
+    shortName: "BCA",
     degree: "Bachelor of Computer Applications (BCA)",
     field: "Computer Programming",
     period: "2011 - 2014",
