@@ -75,9 +75,8 @@ export default function NetflixIntro() {
               <stop offset="50%" stopColor="#b20710" />
               <stop offset="100%" stopColor="#831010" />
             </linearGradient>
-            <filter id="netflixShadow" x="-50%" y="-50%" width="200%" height="200%">
-              <feDropShadow dx="0" dy="6" stdDeviation="8" floodColor="#000" floodOpacity="0.85" />
-              <feDropShadow dx="0" dy="0" stdDeviation="14" floodColor="#e50914" floodOpacity="0.55" />
+            <filter id="netflixShadow" x="-30%" y="-30%" width="160%" height="160%">
+              <feDropShadow dx="0" dy="3" stdDeviation="2" floodColor="#000" floodOpacity="0.5" />
             </filter>
           </defs>
           <text
