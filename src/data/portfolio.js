@@ -7,7 +7,8 @@ export const profile = {
   currentCompany: "XTec Incorporated",
   location: "United States",
   yearsOfExperience: "8+",
-  linkedIn: "https://www.linkedin.com/in/pooja-gaur",
+  linkedIn: "https://www.linkedin.com/in/pooja-gaur-4aa0a31ab",
+  email: "pooja.gaur179@gmail.com",
 };
 
 export const profiles = [

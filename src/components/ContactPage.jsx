@@ -53,7 +53,7 @@ export default function ContactPage() {
                   <FaLinkedin /> Connect on LinkedIn
                 </a>
                 <a
-                  href={`mailto:${profile.name.toLowerCase().replace(' ', '.')}@email.com`}
+                  href={`mailto:${profile.email}`}
                   className="contact-btn contact-btn-email"
                 >
                   <FaEnvelope /> Send Email
